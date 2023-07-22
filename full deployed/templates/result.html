@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Updated Excel Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Updated Excel Data</h2>
+    <table>
+        <tr>
+            <th>Subjects</th>
+            <th>Lectures</th>
+            <th>Dates</th>
+        </tr>
+        {% for row in excel_data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Enter Date</a>
+</body>
+</html>

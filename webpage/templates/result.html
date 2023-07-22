@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Dates</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Generated Dates</h1>
+    <ul>
+        {% for date in dates %}
+        <li>{{ date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
