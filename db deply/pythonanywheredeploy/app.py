@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Create a SQLite database and table to store the dataset
 def create_database_table():
-    conn = sqlite3.connect("dataset.db")
+    conn = sqlite3.connect("/home/seminal76/mysite/dataset.db")
     cursor = conn.cursor()
 
     cursor.execute("""
@@ -20,7 +20,7 @@ def create_database_table():
     conn.commit()
     conn.close()
 def clear_dataset_table():
-    conn = sqlite3.connect("dataset.db")
+    conn = sqlite3.connect("/home/seminal76/mysite/dataset.db")
     cursor = conn.cursor()
 
     cursor.execute("DELETE FROM dataset")
@@ -105,7 +105,7 @@ def insert_dataset_into_table():
         # ... (Your dataset here)
     ]
 
-    conn = sqlite3.connect("dataset.db")
+    conn = sqlite3.connect("/home/seminal76/mysite/dataset.db")
     cursor = conn.cursor()
 
      # Truncate the table before inserting the dataset
@@ -227,7 +227,7 @@ def update_dates_in_dataset(input_date):
                 updated_dates.append((item[0], item[1], updated_date.strftime("%b-%d")))
 
     # Update the dataset in the database
-    conn = sqlite3.connect("dataset.db")
+    conn = sqlite3.connect("/home/seminal76/mysite/dataset.db")
     cursor = conn.cursor()
 
     # Fetch the existing data from the table
@@ -260,7 +260,7 @@ def index():
         update_dates_in_dataset(user_input_date)
     
     # Fetch the updated dataset from the database
-    conn = sqlite3.connect("dataset.db")
+    conn = sqlite3.connect("/home/seminal76/mysite/dataset.db")
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM dataset")
     updated_dates = cursor.fetchall()
@@ -274,7 +274,7 @@ def today():
     update_dates_with_today()
 
     # Fetch the updated dataset from the database
-    conn = sqlite3.connect("dataset.db")
+    conn = sqlite3.connect("/home/seminal76/mysite/dataset.db")
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM dataset")
     updated_dates = cursor.fetchall()
